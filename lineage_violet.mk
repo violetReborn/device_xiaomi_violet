@@ -8,7 +8,7 @@
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
 # Inherit some common DerpFest AOSP stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 DERPFEST_BUILD_TYPE := Official
 TARGET_FACE_UNLOCK_SUPPORTED := true
