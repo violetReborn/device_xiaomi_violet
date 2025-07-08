@@ -7,7 +7,7 @@
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
-# Inherit some common DerpFest AOSP stuff.
+# Inherit some common Matrixx AOSP stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 #Matrixx Os
