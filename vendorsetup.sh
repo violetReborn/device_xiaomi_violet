@@ -4,4 +4,4 @@ git clone --depth=1 https://gitlab.com/CuriousNom/chaste_vendor-xiaomi-firmware-
 git clone --depth=1 https://github.com/selfmusing/meme_cam.git -b 15 vendor/MiuiCamera
 git clone https://github.com/selfmusing/vendor_bcr.git vendor/bcr
 git clone https://github.com/AOSP-for-vili/android_hardware_xiaomi.git -b lineage-22.2 hardware/xiaomi
-
+git clone https://github.com/zenin1504/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
