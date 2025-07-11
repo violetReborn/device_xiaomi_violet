@@ -7,42 +7,47 @@
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
-# Inherit some common Matrixx AOSP stuff.
+# Inherit some common Lineage AOSP stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
-#Matrixx Os
-# To include Gapps 
-#GMS
-WITH_GMS := true
-WITH_GAPPS := true
-
-# To Build Google(Dailer, Message, Phone) and BCR
-WITH_GMS_COMMS_SUITE := true
-
-# To Add cinematic wallpaer support (only supported in gapps build not in vanilla remove this flag for vanilla builds)
-TARGET_SUPPORTS_WALLEFFECT := true
-
-#Some more GMS Flag
-TARGET_SUPPORTS_GOOGLE_RECORDER := true
-TARGET_INCLUDE_STOCK_ARCORE := true
-TARGET_INCLUDE_STOCK_AICORE := true
-
-# To Add Bypass Charging Support (need to be adapted in DT and KT as well)
-BYPASS_CHARGE_SUPPORTED  := true
-
 
 # Bootanimation Resolution
 TARGET_BOOT_ANIMATION_RES := 1080
-USE_LEGACY_BOOTANIMATION := true
-
-# Charging Animation
-TARGET_INCLUDE_PIXEL_CHARGER := true
 
 # MiuiCamera
 $(call inherit-product-if-exists, vendor/MiuiCamera/config.mk)
 
-# Disable UDFPS animations ( unsupported )
-EXTRA_UDFPS_ICONS := false
+# RisingOS
+# Pure vanilla build
+#WITH_GMS := false
+#TARGET_ENABLE_BLUR := false
+#TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
+#TARGET_INCLUDE_GOOGLE_DIALER := false
+#TARGET_DEFAULT_PIXEL_LAUNCHER := false
+
+# full gapps build
+WITH_GMS := true
+BUILD_WITH_GAPPS := true
+TARGET_DEFAULT_PIXEL_LAUNCHER := true
+TARGET_INCLUDE_GOOGLE_DIALER := true
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := false
+TARGET_ENABLE_BLUR := true
+
+# core gapps build
+#WITH_GMS := true
+#BUILD_WITH_GAPPS := true
+#TARGET_CORE_GMS := true
+#TARGET_DEFAULT_PIXEL_LAUNCHER := false
+#TARGET_INCLUDE_GOOGLE_DIALER := false
+#TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
+#TARGET_ENABLE_BLUR := true
+
+TARGET_BOOT_ANIMATION_RES := 1080
+
+# Maintainer
+RISING_MAINTAINER := Anirban_X_Chronix
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingChipset="Snapdragon 675" \
+    RisingMaintainer="Anirban_X_Chronix"
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_violet
@@ -57,8 +62,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc=$(call normalize-path-list, "violet-user 10 QKQ1.190915.002 V12.5.1.0 release-keys")
 
-    BUILD_FINGERPRINT := xiaomi/violet/violet:10/QKQ1.190915.002/V12.5.1.0.QFHINXM:user/release-keys
+BUILD_FINGERPRINT := xiaomi/violet/violet:10/QKQ1.190915.002/V12.5.1.0.QFHINXM:user/release-keys
 
 PRODUCT_PRODUCT_PROPERTIES += \
    ro.build.fingerprint=$(BUILD_FINGERPRINT)
-
